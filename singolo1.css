@@ -76,32 +76,77 @@
 /* ================== SLIDER ===================== */
 
 .slider {
+    position: relative;
     height: 593px;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
        
 }
+.chev {
+    height: 26px;
+    width: 15px;
+    background-image: url(./assets/img/slider/chev.svg);
+}
 .slider__chev-left {
-    position: relative;
+    position: absolute;
     left: 42px ;
     top: 280px;
 }
-.vertical-phone {
-    position: relative;
-    left: 110px ;
-    top:19px;
-}
-.horizontal-phone {
-    position: relative;
-    left: 423px ;
-    top: -348px;
-}
 .slider__chev-right {
-    position: relative;
-    left: -39px ;
-    top: -486px;
+    position: absolute;
+    left: 965px;
+    top: 282px;
     transform: rotate(180deg);
 }
+.chev:hover  {
+    -webkit-filter: grayscale(100%) brightness(5);
+    filter: grayscale(100%) brightness(5);
+    cursor: pointer;
+}
+
+.slider__phone {
+    position: absolute;
+    width: 217px;
+    height: 459px;
+    background-image: url(./assets/img/slider/Cam.png);
+    z-index: 2;
+}
+
+.vertical-phone {
+    left: 110px;
+    top: 53px;
+}
+.horizontal-phone {
+    left: 546px;
+    top: 51px;
+    transform: rotate(90deg);
+}
+.shadow {
+    position: absolute;
+    width: 240px;
+    height: 482px;
+    background-image: url(./assets/img/slider/Shadow.png);
+    z-index: 1;
+}
+.shadow-vertical {
+    left: 112px;
+    top: 53px;
+}
+.shadow-horizontal {
+    left: 547px;
+    top: 52px;
+    transform: rotate(90deg) scale(1,-1);
+}
+/* .screen-vertical img {
+    position: absolute;
+    height: 330px;
+    width: 187px;
+    top: 10px;
+    left: 10px;
+    background-image: url(./assets/img/slider/Layer\ 5.png);
+} */
+
+
 /* ================== SERVICES ===================== */
 .services {
     height: 436px;
@@ -164,6 +209,8 @@
 .list-description {
     flex-basis: 231px;
     padding-bottom: 31px;
+    max-height: 93px;
+    overflow: hidden;
 }
 .pen {
     background-image: url(./assets/img/main-services/pen.svg);
