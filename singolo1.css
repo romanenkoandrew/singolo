@@ -137,14 +137,26 @@
     top: 52px;
     transform: rotate(90deg) scale(1,-1);
 }
-/* .screen-vertical img {
+.screen-vertical  {
     position: absolute;
-    height: 330px;
-    width: 187px;
-    top: 10px;
-    left: 10px;
+    clip-path: inset(135px 378px 112px 14px);
+    height: 580px;
+    width: 580px;
+    top: -69px;
+    left: 2px;
+    background-image: url(./assets/img/slider/Layer\ 6.png);
+}
+
+.screen-horizontal  {
+    position: absolute;
+    transform: rotate(-90deg);
+    clip-path: inset(119px 122px 273px 125px);
+    height: 580px;
+    width: 580px;
+    top: -56px;
+    left: -103px;
     background-image: url(./assets/img/slider/Layer\ 5.png);
-} */
+}
 
 
 /* ================== SERVICES ===================== */
