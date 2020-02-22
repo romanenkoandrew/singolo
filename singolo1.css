@@ -139,7 +139,7 @@
 }
 .screen-vertical  {
     position: absolute;
-    clip-path: inset(135px 378px 112px 14px);
+    clip: rect( 135px  202px  468px  14px);
     height: 580px;
     width: 580px;
     top: -69px;
@@ -150,13 +150,14 @@
 .screen-horizontal  {
     position: absolute;
     transform: rotate(-90deg);
-    clip-path: inset(119px 122px 273px 125px);
+    clip: rect( 119px  458px 307px  124px);
     height: 580px;
     width: 580px;
     top: -56px;
     left: -103px;
     background-image: url(./assets/img/slider/Layer\ 5.png);
 }
+
 
 
 /* ================== SERVICES ===================== */
