@@ -182,7 +182,7 @@
     font-weight: 300;
     color: #767e9e;
     line-height: 28px;
-    letter-spacing: 0.15px;
+    text-align: justify;
     height: 57px;
     width: 940px;
     padding-bottom: 47px;
@@ -193,6 +193,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    text-align: justify;
 }
 .services__list-item h3 {
     font-family: "Lato";
@@ -200,7 +201,7 @@
     font-weight: 900;
     color: #666d89;
     padding-bottom: 13px;
-    padding-left: 8px;
+    padding-left: 14px;
     line-height: 15px;
 }
 .services__list-item p {
@@ -209,14 +210,14 @@
     font-weight: 400;
     color: #767e9e;
     line-height: 22px;
-    padding-left: 10px;
+    padding-left: 14px;
 }
 .list-icon {
     width: 32px;
     height: 32px;
     border: 2px solid #666d89;
     border-radius: 50%;
-    padding: 13px;
+    padding: 12px;
 }
 .list-description {
     flex-basis: 231px;
@@ -233,11 +234,13 @@
     background-image: url(./assets/img/main-services/bulb.svg);
     background-repeat: no-repeat;
     background-position: center;
+    margin-left: 17px;
 }
 .heart {
     background-image: url(./assets/img/main-services/heart.svg);
     background-repeat: no-repeat;
     background-position: center;
+    margin-left: 17px;
 }
 .phone {
     background-image: url(./assets/img/main-services/phone.svg);
@@ -248,9 +251,11 @@
     background-image: url(./assets/img/main-services/bubble.svg);
     background-repeat: no-repeat;
     background-position: center;
+    margin-left: 17px;
 }
 .star {
     background-image: url(./assets/img/main-services/star.svg);
     background-repeat: no-repeat;
     background-position: center;
+    margin-left: 17px;
 }
