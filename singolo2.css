@@ -64,6 +64,7 @@
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(4,1fr);
     gap: 18px;
+    overflow: hidden;
 }
 
 .portfolio__gallery img {
