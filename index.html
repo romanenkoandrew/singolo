@@ -9,18 +9,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">
+        <header id="home" class="header">
             <div class="content">
                 <div class="header__logo">
                     <h1>singolo</h1>
                 </div>
                 <nav class="header__navigation" >
-                        <ul class="navigation">
-                            <li class="navigation-item"><a class="active" href="#">Home</a></li>
-                            <li class="navigation-item"><a href="#">Services</a></li>
-                            <li class="navigation-item"><a href="#">Portfolio</a></li>
-                            <li class="navigation-item"><a href="#">About</a></li>
-                            <li class="navigation-item"><a href="#">Contact</a></li>
+                        <ul id="navigation" class="navigation">
+                            <li class="navigation-item"><a class="active" href="#home">Home</a></li>
+                            <li class="navigation-item"><a href="#services">Services</a></li>
+                            <li class="navigation-item"><a href="#portfolio">Portfolio</a></li>
+                            <li class="navigation-item"><a href="#about">About</a></li>
+                            <li class="navigation-item"><a href="#contact">Contact</a></li>
                         </ul>
                 </nav>
             </div>
@@ -29,7 +29,8 @@
         <main>
             <section class="slider">
                 <div class="content">
-                    <div class="slider__chev-left chev"></div>
+                    <div class="chev slider__chev-left"></div>
+                    <div class="chev slider__chev-right"></div>
 
                     <figure class="phone">
                         <div class="slider__phone vertical-phone">
@@ -45,11 +46,13 @@
                         <div class="shadow shadow-horizontal"></div>
                     </figure>
 
-                    <div class="chev slider__chev-right"></div>
                 </div>
             </section>
+                    <div class="slide2 hidden">
+                        <img src="./assets/img/slider/Slide2.png" alt="slide2">
+                    </div>
 
-            <section class="services">
+            <section id="services" class="services">
                 <div class="content">
                     <h2>Our Services</h2>
                     <p>
@@ -138,15 +141,15 @@
                 </div>
             </section>
 
-            <section class="portfolio">
+            <section id="portfolio" class="portfolio">
                 <div class="content">
                     <h2>Portfolio</h2>
                     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
                     <div class="portfolio__navigation">
-                        <div class="portfolio__navigation-item active"><button>All</button> </div>
-                        <div class="portfolio__navigation-item"><button>Web Design</button></div>
-                        <div class="portfolio__navigation-item"><button>Graphic Design</button></div>
-                        <div class="portfolio__navigation-item"><button>Artwork</button></div>
+                        <div class="portfolio__navigation-item active-tab">All</div>
+                        <div class="portfolio__navigation-item">Web Design</div>
+                        <div class="portfolio__navigation-item">Graphic Design</div>
+                        <div class="portfolio__navigation-item">Artwork</div>
                     </div>
                     
                     <div class="portfolio__gallery">
@@ -166,7 +169,7 @@
                 </div>
             </section>
     
-            <section class="about-us">
+            <section id="about" class="about-us">
                 <div class="content">
                     <h2>About Us</h2>
                     <p>
@@ -254,7 +257,7 @@
                 </div>
             </section>
 
-            <section class="quote">
+            <section id="contact" class="quote">
                 <div class="content">
                     <h2>Get a Quote</h2>
                     <p>
@@ -264,13 +267,13 @@
                         tortor mauris condimentum nibh. 
                     </p>
                     <div class="form"> 
-                        <form action="#" method="post">
+                        <form>
                             <input type="text" name="name" id="name" class="input" placeholder="Name (Required)" required>
                             <input type="email" name="email" id="email" class="input" placeholder="Email (Required)" required>
                             <input type="text" name="subject" id="subject" class="input" placeholder="Subject">
                             <textarea name="describe" id="describe" class="textarea" cols="30" rows="9" placeholder="Describe your project in detail..."></textarea>
                             <div class="buttons">
-                                <button type="submit" name="submit" class="button">Submit</button>
+                                <button name="submit" id="open-button" class="button">Submit</button>
                                 <button type="reset" name="reset" class="button">Reset</button>
                             </div>
                         </form>
@@ -289,6 +292,17 @@
                                     <li class="contact_item email"><a href="mailto:info@singolo.com">info@singolo.com</a></li>
                                 </ul>
                             </div>
+                        </div>
+                        <div id="message-block" class="hidden" >
+                            <div id="message">
+                                <p>Письмо отправлено</p>
+                                <p id="name-result"></p>
+                                <p id="email-result"></p>
+                                <p id="subject-result"></p>
+                                <p id="describe-result"></p>
+                                <button id="close-button">Ok</button>
+                            </div>
+
                         </div>
                     </div>
                  </div>
@@ -316,6 +330,6 @@
 
         </footer>
     </div>
-    
+    <script src="./script.js"></script>
 </body>
 </html>
