@@ -162,6 +162,16 @@
     z-index: 3;
 }
 
+.phones {
+    display: none;
+}
+.phones.active-slide {
+    display: block;
+}
+.slide2 {
+    margin-left: -40px;
+    /* border-bottom: 6px solid #648bf0; */
+}
 /* ================== SERVICES ===================== */
 .services {
     height: 435px;

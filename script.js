@@ -2,8 +2,7 @@ window.onload = () => {
 
     navigationClickHandler();
     phoneClickHandler();
-
-
+    phoneSliderHandler()
     portfolioTagsHandler();
     portfolioImgClickHandler();
     formButtonClickHandler();
@@ -22,11 +21,12 @@ const removeActiveNavigation = () => {
     navigation.querySelectorAll('a').forEach(el => el.classList.remove('active'))
 }
 
-// Phones
+// PhonesScreen
 
 const slider = document.querySelector('.slider');
 const verticalScreen = document.querySelector('.screen-vertical');
 const horizontalScreen = document.querySelector('.screen-horizontal');
+const phones = document.querySelectorAll('.phones');
 
 const phoneClickHandler = () => { 
     let hiddenVertical = false;
@@ -67,8 +67,37 @@ const horizontalScreenRemove = () => {
 const horizontalScreenAdd = () => {
     horizontalScreen.classList.remove('hidden')
 }
-
-
+// Phones SLider
+const phoneSliderHandler = () => {
+    slider.addEventListener('click', el => {
+        if(el.target.classList.contains('slider__chev-left')) {
+            nextPhone()
+        }
+        if(el.target.classList.contains('slider__chev-right')) {
+            prevPhone()
+        }
+    })
+}
+const countReset = () => {
+    let counter=0;
+    phones.forEach((el,index) => {
+        if(el.classList.contains('active-slide')) {
+            counter = index;
+            el.classList.remove('active-slide')
+        }
+    })
+    return counter;
+}
+const nextPhone = () => {
+    let index = (countReset()+1) % phones.length;
+    phones[index].classList.add('active-slide');
+}
+const prevPhone = () => {
+    let index = countReset()-1;
+    if (index < 0) index = phones.length - 1;
+    
+    phones[index].classList.add('active-slide');
+}
 
 // Portfolio 
 const gallery = document.querySelector('.portfolio__gallery');
