@@ -1,6 +1,6 @@
 window.onload = () => {
-
-    navigationClickHandler();
+    onScroll()
+    // navigationClickHandler();
     phoneClickHandler();
     phoneSliderHandler()
     portfolioTagsHandler();
@@ -9,6 +9,24 @@ window.onload = () => {
 }
 
 // Navigation
+const onScroll = () => {
+    document.addEventListener('scroll', event => {
+    const currentPosition = window.scrollY +95
+    const sections = document.querySelectorAll('.wrapper>section')
+    const links = document.querySelectorAll('#navigation a')
+        sections.forEach(el => {
+
+            if(el.offsetTop <= currentPosition  && (el.offsetTop + el.offsetHeight) >= currentPosition ) {
+                links.forEach(item => {
+                    item.classList.remove('active')
+                    if(el.getAttribute('id') === item.getAttribute('href').substring(1))
+                    item.classList.add('active')
+                })
+            }
+        })
+    }
+    
+    )}
 const navigationClickHandler = () => {
     let navigation = document.getElementById('navigation');
     navigation.addEventListener('click', event => {
@@ -179,8 +197,14 @@ const openModalWindow = () => {
     })
 }
 
+const reset_form = () => {
+    let form = document.getElementById('form')
+    form.reset();
+}
+
 const closeModalWindow = () => {
     close_button.addEventListener('click', ()=> {
+        reset_form()
         modal_window.classList.add('hidden')
         document.body.classList.remove('overflow-hidden')
     })
