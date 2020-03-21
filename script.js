@@ -27,17 +27,6 @@ const onScroll = () => {
     }
     
     )}
-const navigationClickHandler = () => {
-    let navigation = document.getElementById('navigation');
-    navigation.addEventListener('click', event => {
-        removeActiveNavigation();
-        event.target.classList.add('active');
-    })
-}
-
-const removeActiveNavigation = () => {
-    navigation.querySelectorAll('a').forEach(el => el.classList.remove('active'))
-}
 
 // PhonesScreen
 
@@ -89,32 +78,52 @@ const horizontalScreenAdd = () => {
 const phoneSliderHandler = () => {
     slider.addEventListener('click', el => {
         if(el.target.classList.contains('slider__chev-left')) {
-            nextPhone()
+            if(isEnabled) {
+                nextPhone(currentPhone)
+            }
         }
         if(el.target.classList.contains('slider__chev-right')) {
-            prevPhone()
+            if(isEnabled) {
+                prevPhone(currentPhone)
+            }
         }
     })
 }
-const countReset = () => {
-    let counter=0;
-    phones.forEach((el,index) => {
-        if(el.classList.contains('active-slide')) {
-            counter = index;
-            el.classList.remove('active-slide')
-        }
-    })
-    return counter;
+
+let currentPhone = 0;
+let isEnabled = true;
+
+function changeCurrentPhone(n) {
+    currentPhone = (n + phones.length) % phones.length;
 }
-const nextPhone = () => {
-    let index = (countReset()+1) % phones.length;
-    phones[index].classList.add('active-slide');
+function hideItem(direction) {
+    isEnabled = false;
+    console.log(currentPhone)
+	phones[currentPhone].classList.add(direction);
+	phones[currentPhone].addEventListener('animationend', function() {
+		this.classList.remove('active-slide', direction);
+	});
 }
-const prevPhone = () => {
-    let index = countReset()-1;
-    if (index < 0) index = phones.length - 1;
-    
-    phones[index].classList.add('active-slide');
+
+function showItem(direction) {
+    phones[currentPhone].classList.add('active-slide-next', direction);
+    phones[currentPhone].addEventListener('animationend', function() {
+		this.classList.remove('active-slide-next', direction);
+        this.classList.add('active-slide');
+		isEnabled = true;
+	});
+}
+
+function nextPhone(n) {
+	hideItem('to-left');
+	changeCurrentPhone(n + 1);
+	showItem('from-right');
+}
+
+function prevPhone(n) {
+	hideItem('to-right');
+	changeCurrentPhone(n - 1);
+	showItem('from-left');
 }
 
 // Portfolio 
