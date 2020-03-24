@@ -109,14 +109,11 @@
 }
 .slider__chev-left {
     position: absolute;
-    left: 42px ;
-    top: 281px;
+    transform: translate(0, 281px);
 }
 .slider__chev-right {
     position: absolute;
-    left: 964px;
-    top: 281px;
-    transform: rotate(180deg);
+    transform: translate(924px, 281px) rotate(180deg);
 }
 .chev:hover  {
     filter: grayscale(100%) brightness(5);
@@ -131,13 +128,10 @@
     z-index: 2;
 }
 .vertical-phone {
-    left: 110px;
-    top: 52px;
+    transform: translate(70px, 52px);
 }
 .horizontal-phone {
-    left: 546px;
-    top: 51px;
-    transform: rotate(90deg);
+    transform: translate(506px, 51px) rotate(90deg);
 }
 .shadow {
     position: absolute;
@@ -147,32 +141,26 @@
     z-index: 1;
 }
 .shadow-vertical {
-    left: 112px;
-    top: 54px;
+    transform: translate(72px, 54px);
 }
 .shadow-horizontal {
-    left: 547px;
-    top: 53px;
-    transform: rotate(90deg) scale(1,-1);
+    transform: translate(507px, 53px) rotate(90deg) scale(1,-1);
 }
 .screen-vertical  {
     position: absolute;
     clip: rect( 135px  202px  468px  14px);
     height: 580px;
     width: 580px;
-    top: -69px;
-    left: 2px;
+    transform: translate(2px, -69px);
     background-image: url(./assets/img/slider/Layer\ 6.png);
     z-index: 3;
 }
 .screen-horizontal  {
     position: absolute;
-    transform: rotate(-90deg);
+    transform: translate(-103px, -56px) rotate(-90deg);
     clip: rect( 119px  458px 307px  124px);
     height: 580px;
     width: 580px;
-    top: -56px;
-    left: -103px;
     background-image: url(./assets/img/slider/Layer\ 5.png);
     z-index: 3;
 }
@@ -340,7 +328,7 @@
     margin-bottom: 11px;
 }
 .portfolio__navigation {
-    width: 280px;
+    width: 290px;
     display: flex;
     justify-content: space-between;
 }
@@ -455,7 +443,7 @@
     background-position: center;
 }
 .facebook:hover {
-    border: 2px solid #000;
+    border: 1px solid #000;
     background-image: url(./assets/img/social_media/facebook.svg);
     background-color: #f2f2f2;
 }
@@ -465,7 +453,7 @@
     background-position: center;
 }
 .google:hover {
-    border: 2px solid #000;
+    border: 1px solid #000;
     background-image: url(./assets/img/social_media/google+.svg);
     background-color: #f2f2f2;
 }
@@ -475,7 +463,7 @@
     background-position: center;
 }
 .twitter:hover {
-    border: 2px solid #000;
+    border: 1px solid #000;
     background-image: url(./assets/img/social_media/twitter.svg);
     background-color: #f2f2f2;
 }
@@ -485,7 +473,7 @@
     background-position: center;
 }
 .linkedin:hover {
-    border: 2px solid #000;
+    border: 1px solid #000;
     background-image: url(./assets/img/social_media/linkedin.svg);
     background-color: #f2f2f2;
 }
@@ -718,37 +706,34 @@ footer .content {
     justify-content: space-between;
     padding-top: 21px;
 }
-
+    /* ====================== TABLET ================== */
 @media only screen and (max-width: 1019px) {
 
     .wrapper {
         max-width: 768px;
-        margin: 0 auto;
-    }
-    .content {
-        padding: 0 40px;
     }
     
-    /* ====================== HEADER ================== */
+    /* ====================== HEADER FOR TABLET================== */
     
     .header__wrapper{
         width: 688px;
     }
     
-    /* ================== SLIDER ===================== */
+    /* ================== SLIDER FOR TABLET===================== */
     .slider {
-        height: 452px;
+        height: 446px;
     }
     .slider__wrapper {
         max-width: 768px;
     }
+    .slider__content {
+        height: 446px;
+    }
      .slider__chev-left {
-        top: 197px;
-        left: 20px;
+        transform: translate(-20px, 197px);
     }
     .slider__chev-right {
-        left: 728px;
-        top: 197px;
+        transform: translate(692px, 197px) rotate(180deg);
     }
     .slider__phone {
         transform: scale(0.75);
@@ -779,7 +764,7 @@ footer .content {
         height: 452px;
     }
 
-    /* ================== SERVICES ===================== */
+    /* ================== SERVICES FOR TABLET===================== */
     .services {
         height: 571px;
         padding-top: 40px;
@@ -790,14 +775,14 @@ footer .content {
         margin-bottom: 28px;
     }
     
-    /* ================== SERVICES LIST ===================== */
+    /* ================== SERVICES LIST FOR TABLET===================== */
     .list-item {
         flex-basis: 44%;
         max-height: 104px;
         margin-bottom: 55px;
     }
 
-    /* ================== PORTFOLIO ===================== */
+    /* ================== PORTFOLIO FOR TABLET===================== */
     .portfolio {
         height: 1102px;
     }
@@ -811,7 +796,7 @@ footer .content {
         max-height: 183px; 
     }
     
-    /* ================= ABOUT US ============== */
+    /* ================= ABOUT US FOR TABLET============== */
     .about-us {
         height: 670px;
     }
@@ -833,8 +818,7 @@ footer .content {
         max-height: 62px;
     }
 
-    
-    /* ========================= GET A QUOTE ======================= */
+    /* ========================= GET A QUOTE FOR TABLET======================= */
     .quote {
         height: 631px;
     }
@@ -856,12 +840,15 @@ footer .content {
         margin-left: 30px;
     }
     
-    /* ==================Modal window=================== */
+    /* ==================Modal window FOR TABLET=================== */
     #message-block {
         top: 2975px;
     }
+    #message {
+        top: calc( 50% - 250px )
+    }
 
-    /* ===============Get a Quote => Contact============ */
+    /* ===============Get a Quote => Contact FOR TABLET============ */
     .contact-information h3 {
         margin-bottom: 5px;
     }
@@ -873,3 +860,175 @@ footer .content {
         margin-top: 10px;
     }
 }
+
+/* ====================== PHONE ================== */
+@media only screen and (max-width: 767px) {
+
+    .wrapper {
+        max-width: 375px;
+    }
+    .content {
+        padding: 0 30px;
+    }
+    
+    /* ====================== HEADER FOR PHONE================== */
+    
+    .header__wrapper{
+        width: 315px;
+        height: 65px;
+        justify-content: center;
+    }
+    .header__navigation {
+        display: none;
+    }
+    
+    /* ================== SLIDER FOR PHONE===================== */
+    .slider {
+        height: 218px;
+        margin-top: 71px;
+        border-bottom: 2px solid #ea676b;
+    }
+    .slider__wrapper {
+        max-width: 375px;
+    }
+    .slider__content {
+        height: 218px;
+    }
+        .slider__chev-left {
+        transform: translate(-20px, 97px) scale(0.9);
+    }
+    .slider__chev-right {
+        transform: translate(320px, 97px) rotate(180deg) scale(0.9);
+    }
+    .slider__phone {
+        transform: scale(0.4);
+    }
+    .vertical-phone {
+        transform: translate(-80px, -110px) scale(0.4);      
+    }
+    .horizontal-phone {
+        transform: translate(-250px, -110px) rotate(90deg) scale(0.4);
+    }
+    .shadow-vertical {
+        transform: translate(-86px, -117px) scale(0.4);      
+    }
+    .shadow-horizontal {
+
+        transform: translate(-258px, -117px) rotate(90deg) scale(1,-1) scale(0.4);
+    }
+    .slide2 img {
+        width: 385px;
+        height: 218px;
+    }
+
+    /* ================== SERVICES FOR PHONE===================== */
+    .services {
+        height: 1032px;
+        padding-top: 25px;
+        padding-bottom: 15px;
+    }
+    .services .content>p {
+        height: 214px;
+        margin-bottom: 25px;
+    }
+    
+    /* ================== SERVICES LIST FOR PHONE===================== */
+    .list-item {
+        flex-basis: 100%;
+        margin-bottom: 35px;
+    }
+
+    /* ================== PORTFOLIO FOR PHONE===================== */
+    .portfolio {
+        height: 844px;
+    }
+    .portfolio h2 { 
+        padding-top: 50px;
+    }
+    .portfolio__gallery {
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px 10px;
+        max-height: 560px;
+    }
+    .portfolio__gallery img {
+        max-width: 151px;
+        max-height: 128px; 
+    }
+    
+    /* ================= ABOUT US FOR PHONE============== */
+    .about-us {
+        height: 1710px;
+    }
+    .about-us h2 {
+        padding-top: 40px;
+    }
+    .three-column-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,1fr);
+        margin-top: 30px;
+        gap: 35px;
+    }
+    .three-column-layout .img img {
+        width: 314px;
+        height: 314px;
+    }
+    .three-column-layout .name {
+        max-width: 219px;
+        margin-top: 10px;
+    }
+    .three-column-layout .description {
+        margin-bottom: 10px;
+    }
+
+    
+    /* ========================= GET A QUOTE FOR PHONE======================= */
+    .quote {
+        height: 940px;
+    }
+    .quote h2 { 
+        padding-top: 40px;
+    }
+    .form {
+        flex-direction: column;    
+    }
+    .input {
+        width: 300px;
+    }
+    .textarea {
+        max-height: 159px;
+        max-width: 300px;
+    }
+    .button {
+        width: 315px;
+        margin-bottom: 50px;
+    }
+    .contact-information p, 
+    .contact-information a {
+        max-width:  315px;
+    }
+    .contact-information {
+        margin-left: 0;
+    }
+    
+    /* ==================Modal window FOR PHONE=================== */
+    #message-block {
+        top: 4200px;
+    }
+
+    #message {
+        left: calc( 50% - 150px );
+        top: calc( 50% - 180px );
+        width: 300px;
+    }
+    
+    /* ==================Footer FOR PHONE========================= */
+    .copyright {
+        display: none;
+    }
+    footer .content {
+        justify-content: center;
+    }
+
+}
+
+    
