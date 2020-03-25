@@ -20,7 +20,9 @@
 }
 
 /* ====================== HEADER ================== */
-
+.header__hamburger {
+    display: none;
+}
 .header__wrapper{
     width: 940px;
     height: 89px;
@@ -580,7 +582,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 2775px;
     left: 0;
     background: #0008;
 }
@@ -601,7 +602,8 @@
     text-align: center;
     font-weight: bold;
 }
-#message p, span {
+#message p,
+#message span {
     font-size: 1.2rem;
     font-weight: normal;
     font-family: "Lato", Georgia, sans-serif;
@@ -841,11 +843,8 @@ footer .content {
     }
     
     /* ==================Modal window FOR TABLET=================== */
-    #message-block {
-        top: 2975px;
-    }
     #message {
-        top: calc( 50% - 250px )
+        top: calc( 50% - 112px )
     }
 
     /* ===============Get a Quote => Contact FOR TABLET============ */
@@ -872,15 +871,122 @@ footer .content {
     }
     
     /* ====================== HEADER FOR PHONE================== */
-    
+    .header {
+        position: relative;
+    }
     .header__wrapper{
         width: 315px;
         height: 65px;
-        justify-content: center;
     }
     .header__navigation {
         display: none;
     }
+    .header__logo {
+        display: flex;
+        align-items: center;
+        width: 375px;
+    }
+    .header__logo h1 {
+        margin-left: 100px;
+    }
+
+    /* ====================== BURGER-MENU FOR PHONE================== */
+    .header__hamburger {
+        display: block;
+        position: absolute;
+    }
+    .hamburger {
+        display: block;
+        width: 30px;
+        height: 26px;
+        transition: 0.2s ease-in-out;
+        z-index: 7;
+    }
+    .rotate {
+        transform: rotate(90deg);
+    }
+    .rotate-reverse {
+        transform: rotate(0deg);
+    }
+    .hamburger::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 5px;
+        height: 3px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+    .hamburger::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 5px;
+        height: 3px;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .hamburger__line {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 5px;
+        height: 3px;
+        width: 100%;
+        top: calc( 50% - 1.5px );
+        left: 0;
+    }
+    .hamburger__menu {
+        position: fixed;
+        width: 375px;
+        height: 100vh;
+        background: #0008;
+        z-index: 5;
+    }
+    .hamburger__menu-block {
+        width: 278px;
+        height: 100vh;
+        background: #2D303A;
+        box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .hamburger__menu-navigation {
+
+        width: 205px;  
+        height: 260px;
+        margin-left: 71px;
+
+    }
+    .hamburger__menu-navigation li  {
+        list-style: none;
+        margin-bottom: 27px;
+    }
+    .hamburger_navigation-item a{
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .hamburger_navigation-item a:hover:not(.active) {
+        color: #ff0000;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: 0.5s;
+    }
+    .hamburger_navigation-item li a.active {
+        color: #f06c64;
+    }
+    
     
     /* ================== SLIDER FOR PHONE===================== */
     .slider {
@@ -996,7 +1102,7 @@ footer .content {
     }
     .textarea {
         max-height: 159px;
-        max-width: 300px;
+        width: 300px;
     }
     .button {
         width: 315px;
@@ -1011,9 +1117,6 @@ footer .content {
     }
     
     /* ==================Modal window FOR PHONE=================== */
-    #message-block {
-        top: 4200px;
-    }
 
     #message {
         left: calc( 50% - 150px );
@@ -1031,4 +1134,11 @@ footer .content {
 
 }
 
-    
+@media only screen and (max-width: 374px) {
+    .wrapper {
+        min-width: 375px;
+    }
+    body {
+        overflow-x: hidden;
+    }
+}

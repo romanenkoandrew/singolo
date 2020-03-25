@@ -1,22 +1,58 @@
 window.onload = () => {
-    onScroll()
-    // navigationClickHandler();
+    onScroll();
+    hamburgerClickHandler();
     phoneClickHandler();
-    phoneSliderHandler()
+    phoneSliderHandler();
     portfolioTagsHandler();
     portfolioImgClickHandler();
     formButtonClickHandler();
+}
+// Hamburger MENU
+const hamburger = document.querySelector('.hamburger')
+const hamburger__menu = document.querySelector('.hamburger__menu')
+const header__wrapper = document.querySelector('.header__wrapper')
+let position = true
+const hamburgerClickHandler = () => {
+    hamburger.addEventListener('click', function() {
+        rotateMenu()
+        menuOpenClose()
+    })
+
+}
+const rotateMenu = () => {
+    if(position) {
+        hamburger.classList.remove('rotate-reverse') 
+        hamburger.classList.add('rotate') 
+        position = false
+    } 
+    else {
+        hamburger.classList.remove('rotate') 
+        hamburger.classList.add('rotate-reverse') 
+        position = true
+    }
+}
+const menuOpenClose = () => {
+    if(position) {
+        header__wrapper.style.borderBottomColor = '#323746';
+        hamburger__menu.classList.add('hidden')
+        document.body.classList.remove('overflow-hidden')
+        
+    } else {
+        header__wrapper.style.borderBottomColor = '#2d303a';
+        hamburger__menu.classList.remove('hidden')
+        document.body.classList.add('overflow-hidden')
+    }
 }
 
 // Navigation
 const onScroll = () => {
     document.addEventListener('scroll', event => {
-    const currentPosition = window.scrollY +95
+    const currentPosition = window.scrollY + 95
     const sections = document.querySelectorAll('.wrapper>section')
     const links = document.querySelectorAll('#navigation a')
         sections.forEach(el => {
 
-            if(el.offsetTop <= currentPosition  && (el.offsetTop + el.offsetHeight) >= currentPosition ) {
+            if(el.offsetTop <= currentPosition && (el.offsetTop + el.offsetHeight) >= currentPosition ) {
                 links.forEach(item => {
                     item.classList.remove('active')
                     if(el.getAttribute('id') === item.getAttribute('href').substring(1))
@@ -29,7 +65,6 @@ const onScroll = () => {
     )}
 
 // PhonesScreen
-
 const slider = document.querySelector('.slider');
 const verticalScreen = document.querySelector('.screen-vertical');
 const horizontalScreen = document.querySelector('.screen-horizontal');
@@ -74,6 +109,7 @@ const horizontalScreenRemove = () => {
 const horizontalScreenAdd = () => {
     horizontalScreen.classList.remove('hidden')
 }
+
 // Phones SLider
 const phoneSliderHandler = () => {
     slider.addEventListener('click', el => {
@@ -98,7 +134,6 @@ function changeCurrentPhone(n) {
 }
 function hideItem(direction) {
     isEnabled = false;
-    console.log(currentPhone)
 	phones[currentPhone].classList.add(direction);
 	phones[currentPhone].addEventListener('animationend', function() {
 		this.classList.remove('active-slide', direction);
@@ -166,7 +201,6 @@ const changeGallery = () => {
 }
 
 // Form modal window
-
 const open_button = document.getElementById('open-button'); 
 const close_button = document.getElementById('close-button');
 const modal_window = document.getElementById('message-block');
@@ -187,7 +221,7 @@ const openModalWindow = () => {
         let modal_email = document.getElementById('email-result');
         let modal_subject = document.getElementById('subject-result');
         let modal_describe = document.getElementById('describe-result');
-
+        modal_window.style.top = pageYOffset + 'px'
         modal_name.innerText = `Отправитель: ${form_name}`;
         modal_email.innerText = `Эл. Адрес: ${form_email}`;
         if(form_subject){
@@ -200,9 +234,12 @@ const openModalWindow = () => {
         } else {
             modal_describe.innerText = 'Без описания'
         }
-        modal_window.classList.remove('hidden')
-        document.body.classList.add('overflow-hidden')
-        event.preventDefault()
+        if(form_name && form_email) {
+            modal_window.classList.remove('hidden')
+            document.body.classList.add('overflow-hidden')
+            event.preventDefault()
+        }
+    
     })
 }
 
