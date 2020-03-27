@@ -183,33 +183,33 @@
 .to-left {
     animation-name: left;
   }
-  .from-right {
+.from-right {
     animation-name: right;
-  }
-  .to-right {
+}
+.to-right {
     animation-name: right;
     animation-direction: reverse;
-  }
-  .from-left {
+}
+.from-left {
     animation-name: left;
     animation-direction: reverse;
-  }
-  @keyframes left {
+}
+@keyframes left {
     from {
-      left: 0;
+        left: 0;
     }
     to {
-      left: -100%;
+        left: -100%;
     }
-  }
-  @keyframes right {
+    }
+    @keyframes right {
     from {
-      left: 100%;
+        left: 100%;
     }
     to {
-      left: 0;
+        left: 0;
     }
-  }
+}
 /* ================== SERVICES ===================== */
 .services {
     height: 435px;
@@ -372,6 +372,8 @@
 
 .active-img {
     border: 5px solid #F06C64;
+    width: 213px;
+    height: 177px;
 }
 
 /* ================= ABOUT US ============== */
@@ -797,6 +799,10 @@ footer .content {
         max-width: 216px;
         max-height: 183px; 
     }
+    .active-img {
+        width: 208px;
+        height: 173px;
+    }
     
     /* ================= ABOUT US FOR TABLET============== */
     .about-us {
@@ -899,7 +905,7 @@ footer .content {
         display: block;
         width: 30px;
         height: 26px;
-        transition: 0.2s ease-in-out;
+        transition: 0.5s ease-in-out;
         z-index: 7;
     }
     .rotate {
@@ -947,8 +953,8 @@ footer .content {
         height: 100vh;
         background: #0008;
         z-index: 5;
-    }
-    .hamburger__menu-block {
+}
+.hamburger__menu-block {
         width: 278px;
         height: 100vh;
         background: #2D303A;
@@ -957,6 +963,23 @@ footer .content {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        animation: menu-right 0.5s ease-in-out;
+    }
+    @keyframes menu-right {
+        from {
+          width: 0;
+        }
+        to {
+          width: 278px;
+        }
+    }
+    @keyframes menu-left {
+        from {
+          width: 278px;
+        }
+        to {
+          width: 0;
+        }
     }
     .hamburger__menu-navigation {
 
@@ -1059,6 +1082,10 @@ footer .content {
     .portfolio__gallery img {
         max-width: 151px;
         max-height: 128px; 
+    }
+    .active-img {
+        width: 142px;
+        height: 118px;
     }
     
     /* ================= ABOUT US FOR PHONE============== */

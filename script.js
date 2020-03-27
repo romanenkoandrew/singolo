@@ -1,6 +1,7 @@
 window.onload = () => {
     onScroll();
     hamburgerClickHandler();
+    hamburgerOnBlur();
     phoneClickHandler();
     phoneSliderHandler();
     portfolioTagsHandler();
@@ -15,9 +16,14 @@ let position = true
 const hamburgerClickHandler = () => {
     hamburger.addEventListener('click', function() {
         rotateMenu()
-        menuOpenClose()
+        menuOpen()
+        menuClose()
     })
-
+}
+const hamburgerOnBlur = () => {
+    hamburger__menu.addEventListener('click', function() {
+        menuOnBlur()
+    })
 }
 const rotateMenu = () => {
     if(position) {
@@ -31,17 +37,25 @@ const rotateMenu = () => {
         position = true
     }
 }
-const menuOpenClose = () => {
+const menuClose = () => {
     if(position) {
         header__wrapper.style.borderBottomColor = '#323746';
         hamburger__menu.classList.add('hidden')
         document.body.classList.remove('overflow-hidden')
+    } 
         
-    } else {
+}  
+const menuOpen = () => {
+    if (!position) {
         header__wrapper.style.borderBottomColor = '#2d303a';
         hamburger__menu.classList.remove('hidden')
         document.body.classList.add('overflow-hidden')
     }
+}
+
+const menuOnBlur = () => {
+    rotateMenu();
+    menuClose();
 }
 
 // Navigation
@@ -183,6 +197,7 @@ const portfolioTagsHandler = () => {
     portfolioNavigation.addEventListener('click', event => {
         if(event.target.classList.contains('portfolio__navigation-item')) {
         removeActivePortfolioNavigation();
+        imgRemoveBorder();
         event.target.classList.add('active-tab');
         changeGallery();
         }
